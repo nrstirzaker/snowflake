@@ -7,8 +7,11 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jshint": "^2.9.4"
+  },
   "scripts": {
+    "test": "./node_modules/jshint/bin/jshint server.js",
     "start": "node server.js"
   },
   "repository": {
