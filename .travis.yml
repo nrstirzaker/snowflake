@@ -8,4 +8,6 @@ deploy:
     - "6"
   before_script:
     - npm install
+  script:
+    - node server.js
 
