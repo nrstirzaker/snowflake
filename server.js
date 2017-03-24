@@ -29,7 +29,7 @@ router.get('/api', function(req, res) {
 });
 
 
-router.get('/health', function(req, res) {
+router.get('/my-health', function(req, res) {
 	res.json({ message: 'F.A.B' });	
 });
 
