@@ -33,6 +33,10 @@ router.get('/my-health', function(req, res) {
 	res.json({ message: 'F.A.B' });	
 });
 
+router.get('/web', function(req, res) {
+	res.sendFile('public/index.html');
+});
+
 // REGISTER OUR ROUTES -------------------------------
 app.use('/', router);
 
