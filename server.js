@@ -6,7 +6,7 @@ var path    = require("path");
 // configure body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public'))
+app.use('/web', express.static(path.join(__dirname, 'public')));
 var port     = process.env.PORT || 8080; // set our port
 
 
@@ -33,9 +33,7 @@ router.get('/my-health', function(req, res) {
 	res.json({ message: 'F.A.B' });	
 });
 
-router.get('/web', function(req, res) {
-	res.sendFile('index.html');
-});
+
 
 // REGISTER OUR ROUTES -------------------------------
 app.use('/', router);
