@@ -34,12 +34,12 @@ router.get('/my-health', function(req, res) {
 });
 
 router.get('/web', function(req, res) {
-	res.sendFile(path.join(__dirname+'/public/index.html'));
+	res.sendFile('index.html');
 });
 
 // REGISTER OUR ROUTES -------------------------------
 app.use('/', router);
-
+app.use(express.static('public'))
 // START THE SERVER
 // =============================================================================
 app.listen(port);
