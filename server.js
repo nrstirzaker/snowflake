@@ -1,7 +1,7 @@
 var express    = require('express');
 var bodyParser = require('body-parser');
 var app        = express();
-
+var path    = require("path");
 
 // configure body parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,7 +34,7 @@ router.get('/my-health', function(req, res) {
 });
 
 router.get('/web', function(req, res) {
-	res.sendFile('public/index.html');
+	res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
 // REGISTER OUR ROUTES -------------------------------
