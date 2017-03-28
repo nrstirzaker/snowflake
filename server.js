@@ -6,7 +6,7 @@ var path    = require("path");
 // configure body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(express.static('public'))
 var port     = process.env.PORT || 8080; // set our port
 
 
@@ -39,7 +39,7 @@ router.get('/web', function(req, res) {
 
 // REGISTER OUR ROUTES -------------------------------
 app.use('/', router);
-app.use(express.static('public'))
+
 // START THE SERVER
 // =============================================================================
 app.listen(port);
