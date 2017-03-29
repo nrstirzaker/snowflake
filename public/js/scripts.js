@@ -32,4 +32,33 @@
 
     });
 
+
+    btnSignup.addEventListener("click", e => {
+
+
+        const email = txtEmail.value;
+        const password = txtPassword.value;
+        const auth = firebase.auth();
+
+        const promise = auth.createUserWithEmailAndPassword(email, password);
+        promise.catch(e => console.log(e.message));
+        
+
+    });
+
+    btnLogout.addEventListener("click", e => {
+        firebase.auth().signOut();
+    });
+
+    firebase.auth().onStateChanged(firebaseUser => {
+        if (firebaseUser){
+            console.log(firebaseUser);
+            btnLogout.classList.remove("hide");
+        }else{
+            console.log("not logged in");
+            btnLogout.classList.add("hide");
+        }
+    })
+
+
 }());
