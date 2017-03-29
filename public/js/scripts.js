@@ -50,7 +50,7 @@
         firebase.auth().signOut();
     });
 
-    firebase.auth().onStateChanged(firebaseUser => {
+    firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser){
             console.log(firebaseUser);
             btnLogout.classList.remove("hide");
