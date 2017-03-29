@@ -18,12 +18,40 @@
 
     <div id='nativation'></div>
 
+
+    </div>
+    <div id="container">
+
+        <form>
+
+            <input id="txtEmail" type="text" placeholder="Email">
+
+
+            <input id="txtPassword" type="password" placeholder="Password">
+
+            <button id="btnLogin" class="btn btn-action">
+                Login
+            </button>
+
+            <button id="btnSignup" class="btn btn-secondary">
+                Signup
+            </button>
+
+            <button id="btnLogout" class="btn btn-action hide">
+                Logout
+            </button>
+
+        </form>
+
+    </div>
+
     <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
     <script>
         // Initialize Firebase
         // TODO: Replace with your project's customized code snippet
         var config = {
             apiKey: "<API_KEY>",
+            
             authDomain: "<PROJECT_ID>.firebaseapp.com",
             databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
             storageBucket: "<BUCKET>.appspot.com",
