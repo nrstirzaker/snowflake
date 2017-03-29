@@ -8,6 +8,7 @@
         storageBucket: "snowflake-ab96c.appspot.com",
         messagingSenderId: "279588899938"
     };
+
     firebase.initializeApp(config);
 
 
