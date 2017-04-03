@@ -8,11 +8,13 @@
     "express": "^4.15.2"
   },
   "devDependencies": {
-    "jshint": "^2.9.4"
+    "jshint": "^2.9.4",
+    "lite-server": "^2.3.0"
   },
   "scripts": {
     "test": "./node_modules/jshint/bin/jshint server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "lite-server"
   },
   "repository": {
     "type": "git",

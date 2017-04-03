@@ -1,4 +1,4 @@
-(function () {
+$(function () {
 
     // Initialize Firebase
     var config = {
@@ -11,51 +11,36 @@
 
     firebase.initializeApp(config);
 
-
-    const txtEmail = document.getElementById('txtEmail');
-    const txtPassword = document.getElementById('txtPassword');
-    const btnLogin = document.getElementById('btnLogin');
-    const btnSignup = document.getElementById('btnSignup');
-    const btnLogout = document.getElementById('btnLogout');
-
-
-
-    btnLogin.addEventListener("click", e => {
-
-
-        const email = txtEmail.value;
-        const password = txtPassword.value;
+    $("#btnLogin").click(function () {
+        const email = $('#txtEmail').val();
+        const password = $('#txtPassword').val();
         const auth = firebase.auth();
 
         const promise = auth.signInWithEmailAndPassword(email, password);
         promise.catch(e => console.log(e.message));
-        
-
     });
 
 
-    btnSignup.addEventListener("click", e => {
-
-
-        const email = txtEmail.value;
-        const password = txtPassword.value;
+    $('#btnSignup').click(function () {
+        const email = $('#txtEmail').val();
+        const password = $('#txtPassword').val();
         const auth = firebase.auth();
 
         const promise = auth.createUserWithEmailAndPassword(email, password);
         promise.catch(e => console.log(e.message));
-        
+
 
     });
 
-    btnLogout.addEventListener("click", e => {
+    $('#btnLogout').click(function () {
         firebase.auth().signOut();
     });
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser){
+        if (firebaseUser) {
             console.log(firebaseUser);
             btnLogout.classList.remove("hide");
-        }else{
+        } else {
             console.log("not logged in");
             btnLogout.classList.add("hide");
         }
