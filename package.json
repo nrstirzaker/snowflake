@@ -12,8 +12,8 @@
     "lite-server": "^2.3.0"
   },
   "scripts": {
-    "test": "./node_modules/jshint/bin/jshint server.js",
-    "start": "node server.js",
+    "test": "./node_modules/jshint/bin/jshint hapiServer.js",
+    "start": "node hapiServer.js",
     "dev": "lite-server"
   },
   "repository": {
