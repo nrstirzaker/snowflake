@@ -34,11 +34,13 @@ server.route({
     method: 'POST',
     path: '/api/register',
     handler: function (req, reply) {
+        console.log("step1");
         const email = req.payload.username;
         const password = req.payload.password;
         const auth = firebase.auth();
-
+        console.log("step2");
         const promise = auth.createUserWithEmailAndPassword(email, password);
+        console.log("step3");
         promise.catch(e => {
             console.log(e);
             reply({ result: 'registered' });
@@ -47,6 +49,7 @@ server.route({
             //console.log(a);
             reply({ result: a });
         });
+        console.log("step4");
     }
 });
 
