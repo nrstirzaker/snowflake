@@ -10,7 +10,7 @@ var firebase = require("firebase");
 
 const Hapi = require('hapi');
 const server = new Hapi.Server();
-server.connection({ port: port, host: 'localhost' });
+server.connection({ port: port, host: '0.0.0.0' });
 
 
 
