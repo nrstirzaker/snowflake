@@ -35,7 +35,7 @@ server.route({
   path: '/js/{file*}',
   handler: {
     directory: { 
-      path: 'public/js'
+      path: './public/js'
     }
   }
 });
@@ -45,7 +45,7 @@ server.route({
   path: '/css/{file*}',
   handler: {
     directory: { 
-      path: 'public/css'
+      path: './public/css'
     }
   }
 });
@@ -55,7 +55,7 @@ server.route({
   path: '/images/{file*}',
   handler: {
     directory: { 
-      path: 'public/images'
+      path: './public/images'
     }
   }
 })
