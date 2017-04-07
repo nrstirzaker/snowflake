@@ -19,10 +19,21 @@ const server = new Hapi.Server({
         }
     }
 });
-server.connection({ port: port, host: '0.0.0.0' });
+server.connection({ port: port });
 
 server.register(Inert, () => {});
 
+server.route({
+    method: 'GET',
+    path: '/{param*}',
+    handler: {
+        directory: {
+            path: '.',
+            redirectToSlash: true,
+            index: true
+        }
+    }
+});
 
 var config = {
     apiKey: process.env.API_KEY || extConfig.apiKey,
