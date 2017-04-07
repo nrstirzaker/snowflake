@@ -1,13 +1,11 @@
 'use strict';
+
 const Inert = require('inert');
 const Path = require('path');
 const extConfig = require('./config/config.json');
 var port = process.env.PORT || 8080; // set our port
 
 var firebase = require("firebase");
-
-
-
 
 const Hapi = require('hapi');
 const server = new Hapi.Server({
@@ -48,7 +46,7 @@ server.route({
     method: 'POST',
     path: '/api/register',
     handler: function (req, reply) {
-        process.stdout.write("step1");
+        console.log("step1");
         const email = req.payload.username;
         const password = req.payload.password;
         const auth = firebase.auth();
