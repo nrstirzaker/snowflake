@@ -1,5 +1,6 @@
 'use strict';
 const inert = require('inert');
+const Path = require('path');
 const extConfig = require('./config/config.json');
 var port = process.env.PORT || 8080; // set our port
 
@@ -9,7 +10,15 @@ var firebase = require("firebase");
 
 
 const Hapi = require('hapi');
-const server = new Hapi.Server();
+const server = new Hapi.Server({
+        connections: {
+        routes: {
+            files: {
+                relativeTo: Path.join(__dirname, 'public')
+            }
+        }
+    }
+});
 server.connection({ port: port, host: '0.0.0.0' });
 
 
@@ -22,43 +31,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-server.route({
-    method: 'GET',
-    path: '/index.html',
-    handler: function (request, reply) {
-        reply.file('./public/index.html');
-    }
-});
 
-server.route({  
-  method: 'GET',
-  path: '/js/{file*}',
-  handler: {
-    directory: { 
-      path: './public/js'
-    }
-  }
-});
-
-server.route({  
-  method: 'GET',
-  path: '/css/{file*}',
-  handler: {
-    directory: { 
-      path: './public/css'
-    }
-  }
-});
-
-server.route({  
-  method: 'GET',
-  path: '/images/{file*}',
-  handler: {
-    directory: { 
-      path: './public/images'
-    }
-  }
-})
 
 server.route({
     method: 'POST',
