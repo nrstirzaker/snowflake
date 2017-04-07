@@ -30,7 +30,7 @@ $(function () {
                 console.log(data);
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                //console.log(errorThrown);
+                process.stdout.write(jqXHR);
             }
         });
 
