@@ -1,5 +1,5 @@
 'use strict';
-const inert = require('inert');
+const Inert = require('inert');
 const Path = require('path');
 const extConfig = require('./config/config.json');
 var port = process.env.PORT || 8080; // set our port
@@ -21,7 +21,7 @@ const server = new Hapi.Server({
 });
 server.connection({ port: port, host: '0.0.0.0' });
 
-
+server.register(Inert, () => {});
 
 
 var config = {
