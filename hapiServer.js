@@ -30,6 +30,36 @@ server.route({
     }
 });
 
+server.route({  
+  method: 'GET',
+  path: '/js/{file*}',
+  handler: {
+    directory: { 
+      path: 'public/js'
+    }
+  }
+});
+
+server.route({  
+  method: 'GET',
+  path: '/css/{file*}',
+  handler: {
+    directory: { 
+      path: 'public/css'
+    }
+  }
+});
+
+server.route({  
+  method: 'GET',
+  path: '/images/{file*}',
+  handler: {
+    directory: { 
+      path: 'public/images'
+    }
+  }
+})
+
 server.route({
     method: 'POST',
     path: '/api/register',
