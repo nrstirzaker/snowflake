@@ -1,5 +1,5 @@
 'use strict';
-
+const inert = require('inert');
 const extConfig = require('./config/config.json');
 var port = process.env.PORT || 8080; // set our port
 
